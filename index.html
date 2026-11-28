@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa a Bologna</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 30V14a12 12 0 0 1 24 0v16h-5V14a7 7 0 0 0-14 0v16z' fill='%23A8432A'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icone/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Casa BO">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#A8432A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650;12..96,750&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="arch" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 30V14a12 12 0 0 1 24 0v16h-5V14a7 7 0 0 0-14 0v16z"/></svg>
+    <div>
+      <div class="brand-name">Casa a Bologna</div>
+      <div class="brand-sub" id="summary">Carico…</div>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs" role="tablist">
+    <button data-view="novita">Novità <span class="count" data-count="novita"></span></button>
+    <button data-view="suggerite" class="on">Da guardare <span class="count" data-count="suggerite"></span></button>
+    <button data-view="verificare">Da verificare <span class="count" data-count="verificare"></span></button>
+    <button data-view="tutte">Tutte <span class="count" data-count="tutte"></span></button>
+    <button data-view="mappa">Mappa</button>
+    <button data-view="salvate">Salvate <span class="count" data-count="salvate"></span></button>
+    <button data-view="mercato">Mercato</button>
+    <button data-view="fonti">Fonti</button>
+    <button data-view="impostazioni" aria-label="Impostazioni">Impostazioni</button>
+  </nav>
+  <div class="refresh">
+    <div class="last" id="last"></div>
+    <button class="btn" id="btn-add" title="Aggiungi un annuncio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      <span>Aggiungi</span>
+    </button>
+    <button class="btn primary" id="btn-refresh">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5"/></svg>
+      <span>Aggiorna</span>
+    </button>
+  </div>
+</header>
+
+<div class="live" id="live" hidden>
+  <div class="live-bar"><span></span></div>
+  <div class="live-text" id="live-text"></div>
+</div>
+
+<main id="main"></main>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-scrim" data-close></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Scheda immobile">
+    <button class="drawer-x" data-close aria-label="Chiudi">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div id="drawer-body"></div>
+  </div>
+</aside>
+
+<nav class="bottom-bar" aria-label="Azioni">
+  <button class="btn" data-proxy="btn-add"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Aggiungi</button>
+  <button class="btn primary" data-proxy="btn-refresh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5"/></svg> <span id="bb-refresh">Aggiorna</span></button>
+</nav>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>window.CB_STATIC = true</script>
+<script src="app.js" type="module"></script>
+</body>
+</html>
